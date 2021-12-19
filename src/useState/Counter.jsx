@@ -9,10 +9,14 @@ export const Counter = () => {
     <div>
       <h4>Counter using useState Hook</h4>
       <h1>Counter: {count}</h1>
-      <Button variant="primary" onClick={() => setCount(count - 1)}>
+      <Button
+        variant="primary"
+        onClick={() => count > 0 && setCount(count - 1)}
+        disabled={count <= 0}
+      >
         Decrement
       </Button>
-      <Button variant="danger" onClick={handleIncrement}>
+      <Button variant="danger" onClick={handleIncrement} disabled={count >= 10}>
         Increment
       </Button>
     </div>
